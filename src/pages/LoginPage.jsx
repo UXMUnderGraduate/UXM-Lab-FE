@@ -10,10 +10,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const theme = createTheme();
 
 export default function LoginPage() {
+  const Navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -78,6 +81,13 @@ export default function LoginPage() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+            </Button>
+            <Button
+              onClick={() => {
+                Navigate('/sign-up');
+              }}
+            >
+              Don't have an account? Sign Up
             </Button>
           </Box>
         </Box>
