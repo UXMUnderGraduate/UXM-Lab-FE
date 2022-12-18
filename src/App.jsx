@@ -8,6 +8,7 @@ import NoticeDetail from './pages/NoticeDetail';
 import Gallery from './pages/Gallery';
 import GalleryDetail from './pages/GalleryDetail';
 import { useEffect } from 'react';
+import Research from './pages/Research';
 
 var vh = 0;
 
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/members" element={<Members />} />
+        <Route path="/research" element={<Research />} />
         <Route path="/publications" element={<Publications />} />
         <Route path="/notices" element={<Notices />} />
         <Route path="/notices/:id" element={<NoticeDetail />} />

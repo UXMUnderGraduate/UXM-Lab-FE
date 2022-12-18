@@ -170,9 +170,6 @@ body,
 .notice-link {
   @apply font-semibold text-sm sm:text-base text-myBlue px-4 py-2 mt-8 sm:mt-10 mb-2 sm:mb-10 bg-myGray bg-opacity-70 rounded-xl;
 }
-/* 
--------------------------------------------------------------------------------
-*/
 
 /* 
 -- Gallery --
