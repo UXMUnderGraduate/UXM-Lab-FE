@@ -13,15 +13,6 @@ const Nav = () => {
             className={({ isActive }) =>
               isActive ? activeStyle : defaultStyle
             }
-            to='/'>
-            Home
-          </NavLink>
-        </li>
-        <li className='nav-list_item'>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? activeStyle : defaultStyle
-            }
             to='/members'>
             Members
           </NavLink>
@@ -49,8 +40,17 @@ const Nav = () => {
             className={({ isActive }) =>
               isActive ? activeStyle : defaultStyle
             }
-            to='/news'>
-            News
+            to='/notices'>
+            Notices
+          </NavLink>
+        </li>
+        <li className='nav-list_item'>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? activeStyle : defaultStyle
+            }
+            to='/gallery'>
+            Gallery
           </NavLink>
         </li>
       </ul>
