@@ -1,20 +1,32 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from './components/layouts/Layout';
+import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Members from './pages/Members';
-import Studies from './pages/Studies';
 import Publications from './pages/Publications';
-import News from './pages/News';
+import Notices from './pages/Notices';
+import NoticeDetail from './pages/NoticeDetail';
+import Gallery from './pages/Gallery';
+import GalleryDetail from './pages/GalleryDetail';
+import { useEffect } from 'react';
+
+var vh = 0;
 
 function App() {
+  useEffect(() => {
+    vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }, []);
+
   return (
     <Layout>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/members' element={<Members />} />
-        <Route path='/studies' element={<Studies />} />
-        <Route path='/publications' element={<Publications />} />
-        <Route path='/news' element={<News />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/notices" element={<Notices />} />
+        <Route path="/notices/:id" element={<NoticeDetail />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/:id" element={<GalleryDetail />} />
       </Routes>
     </Layout>
   );
