@@ -105,6 +105,59 @@ body,
   @apply w-72 h-60 flex flex-col justify-center items-center bg-myGray bg-opacity-40 rounded-xl;
 }
 
+/* 
+-- Members --
+*/
+.member-article{
+  @apply w-full flex justify-center items-start py-8 mb-5 bg-myGray bg-opacity-40 rounded-xl;
+}
+
+/* 
+-- [Members] Card list --
+*/
+.cardlist  {
+  @apply w-full
+}
+
+.cards__professor{
+  @apply flex justify-center
+}
+
+/* 
+-- [Members] Card item --
+ */
+
+.cards__items {
+  @apply mt-6 flex-wrap justify-center flex;
+}
+
+.cards__item {
+  @apply flex flex-row items-center bg-white border rounded-lg shadow-md sm:flex-row md:max-w-md 
+ dark:border-gray-700 dark:bg-gray-800
+  m-2;
+}
+
+.cards__img {
+  @apply object-cover  rounded-t-lg w-48
+  m-2
+  md:rounded-none md:rounded-l-lg h-48
+  ;
+}
+
+.cards__info {
+  @apply flex flex-col justify-between p-4 leading-normal
+}
+
+.cards__name{
+  @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white
+}
+
+.cards__Composition {
+  @apply mb-3 font-normal text-gray-700 dark:text-gray-400
+}
+
+
+
 /*
 -- Publications --
 */

@@ -24,7 +24,7 @@ const ContactUs = () => {
             <p className='font-[tossface] text-4xl mb-3'>🏠</p>
             <h3 className='font-semibold text-2xl mb-5'>Address</h3>
             <p className='font-medium text-xl'>명지대학교 인문캠퍼스</p>
-            <p className='font-medium text-xl'>학생회관 10층, 10103호</p>
+            <p className='font-medium text-xl'>학생회관 10층, 21010호</p>
           </div>
         </div>
       </div>
