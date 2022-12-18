@@ -16,6 +16,7 @@ module.exports = {
         104: '26rem',
         112: '28rem',
         128: '32rem',
+        mobileScreen: 'calc(var(--vh, 1vh) * 100)',
       },
       keyframes: {
         bounceSlow: {
