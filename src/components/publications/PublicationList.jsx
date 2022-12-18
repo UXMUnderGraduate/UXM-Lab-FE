@@ -24,7 +24,7 @@ const dummy = [
 ];
 const PublicationList = () => {
   return (
-    <ul className='publications-list'>
+    <ul className='publication-list'>
       {dummy.map((item) => (
         <PublicationItem key={item.id} title={item.title} />
       ))}

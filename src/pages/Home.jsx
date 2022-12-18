@@ -8,13 +8,11 @@ const Home = () => {
   const { element, onMoveToElement } = useMoveScroll();
 
   return (
-    <main className='main'>
-      <div className='main-container'>
-        <Index onMoveToElement={onMoveToElement} />
-        <AboutUs element={element} />
-        <ContactUs />
-      </div>
-    </main>
+    <>
+      <Index onMoveToElement={onMoveToElement} />
+      <AboutUs element={element} />
+      <ContactUs />
+    </>
   );
 };
 
