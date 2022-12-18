@@ -1,6 +1,7 @@
 import React from 'react';
 import CardList from '../components/members/CardList';
 import CardItem from '../components/members/CardItem';
+import Heading from '../components/ui/Heading';
 
 const dummy = [
   {
@@ -79,15 +80,11 @@ const dummy = [
 
 export default function Members() {
   return (
-    <main className="main">
-      <div className="main-container">
-        <div className="mt-30 mb-12">
-          <h1 className="heading">Members</h1>
-        </div>
+    <>
+      <Heading>Members</Heading>
         <article className="member-article">
           <CardList carddata={dummy} />
         </article>
-      </div>
-    </main>
+    </>
   );
 }
