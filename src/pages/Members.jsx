@@ -1,6 +1,6 @@
 import React from 'react';
 import CardList from '../components/members/CardList';
-import CardItem from '../components/members/CardItem';
+import Heading from '../components/ui/Heading';
 
 const dummy = [
   {
@@ -14,11 +14,11 @@ const dummy = [
   },
   {
     id: '2', //index
-    englishName: 'Minsu Kim',
-    koreaName: '김민수',
+    englishName: 'MinHyuk Jeong',
+    koreaName: '정민혁',
     affiliation: 'Myongji Univ', //소속기관
     researchField: '없는디..', //연구분야
-    email: 'minsu020302@gmail.com',
+    email: 'jmh8900@gmail.com',
     img: 'https://source.unsplash.com/random',
   },
   {
@@ -32,62 +32,58 @@ const dummy = [
   },
   {
     id: '4', //index
-    englishName: 'Minsu Kim',
-    koreaName: '김민수',
+    englishName: 'Chanhee lee',
+    koreaName: '이찬희',
     affiliation: 'Myongji Univ', //소속기관
     researchField: '없는디..', //연구분야
-    email: 'minsu020302@gmail.com',
+    email: 'lch02130@naver.com',
     img: 'https://source.unsplash.com/random',
   },
   {
     id: '5', //index
-    englishName: 'Minsu Kim',
-    koreaName: '김민수',
+    englishName: 'Donghyeok Jang',
+    koreaName: '장동혁',
     affiliation: 'Myongji Univ', //소속기관
     researchField: '없는디..', //연구분야
-    email: 'minsu020302@gmail.com',
+    email: 'lotto9803@naver.com',
     img: 'https://source.unsplash.com/random',
   },
   {
     id: '6', //index
-    englishName: 'Minsu Kim',
-    koreaName: '김민수',
-    affiliation: 'Myongji Univ', //소속기관
+    englishName: 'Sohyeon Kim ',
+    koreaName: '김소현',
+    affiliation: 'Myongji Univ', //소속기관이름
     researchField: '없는디..', //연구분야
-    email: 'minsu020302@gmail.com',
+    email: 'ksohyeon39@gmail.com',
     img: 'https://source.unsplash.com/random',
   },
   {
     id: '7', //index
-    englishName: 'Minsu Kim',
-    koreaName: '김민수',
+    englishName: 'Gi Woong Chae',
+    koreaName: '채기웅',
     affiliation: 'Myongji Univ', //소속기관
     researchField: '없는디..', //연구분야
-    email: 'minsu020302@gmail.com',
+    email: 'rldndco@mju.ac.kr',
     img: 'https://source.unsplash.com/random',
   },
   {
-    id: '8', //index
-    englishName: 'Minsu Kim',
-    koreaName: '김민수',
+    id: '7', //index
+    englishName: 'Seonjae Hyun',
+    koreaName: '현선재',
     affiliation: 'Myongji Univ', //소속기관
     researchField: '없는디..', //연구분야
-    email: 'minsu020302@gmail.com',
+    email: 'hsj106@mju.ac.kr',
     img: 'https://source.unsplash.com/random',
   },
 ];
 
 export default function Members() {
   return (
-    <main className="main">
-      <div className="main-container">
-        <div className="mt-30 mb-12">
-          <h1 className="heading">Members</h1>
-        </div>
-        <article className="member-article">
-          <CardList carddata={dummy} />
-        </article>
-      </div>
-    </main>
+    <>
+      <Heading>Members</Heading>
+      <article className="member-article">
+        <CardList carddata={dummy} />
+      </article>
+    </>
   );
 }

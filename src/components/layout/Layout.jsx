@@ -1,14 +1,15 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
 
 const Layout = (props) => {
   return (
     <>
       <ScrollToTop />
       <Header />
-      {props.children}
+      <Main>{props.children}</Main>
       <Footer />
     </>
   );

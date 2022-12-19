@@ -1,13 +1,12 @@
 import React from 'react';
+import Heading from '../components/ui/Heading';
 import PublicationList from '../components/publications/PublicationList';
 
 const Publications = () => {
   return (
-    <main className='main'>
-      <div className='main-container'>
-        <div className='mt-30 mb-12'>
-          <h1 className='heading'>Publications</h1>
-        </div>
+    <>
+      <Heading>Publications</Heading>
+      <div className='sm:mb-10'>
         <article className='publications-article'>
           <h2 className='year'>2022</h2>
           <PublicationList />
@@ -21,7 +20,7 @@ const Publications = () => {
           <PublicationList />
         </article>
       </div>
-    </main>
+    </>
   );
 };
 
