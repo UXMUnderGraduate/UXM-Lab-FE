@@ -9,6 +9,7 @@ import Gallery from './pages/Gallery';
 import GalleryDetail from './pages/GalleryDetail';
 import { useEffect } from 'react';
 import Research from './pages/Research';
+import Bugger from './components/layout/Bugger';
 
 var vh = 0;
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/notices/:id" element={<NoticeDetail />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/gallery/:id" element={<GalleryDetail />} />
+        <Route path="/test" element={<Bugger />} />
       </Routes>
     </Layout>
   );
