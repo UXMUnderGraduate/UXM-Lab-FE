@@ -228,7 +228,7 @@ body,
 .cards__item {
   @apply flex flex-row items-center bg-white border rounded-lg shadow-md sm:flex-row md:max-w-md 
  dark:border-gray-700 dark:bg-gray-800
-  m-2;
+  m-2 w-full;
 }
 
 .cards__img {
