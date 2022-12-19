@@ -50,7 +50,7 @@ body,
   @apply w-full h-14 sm:h-16 fixed z-10 flex justify-center px-5 sm:px-8 bg-white border-b;
 }
 .header-container {
-  @apply max-w-screen-lg w-full flex justify-between items-center;
+  @apply max-w-screen-lg w-full flex justify-between items-center ;
 }
 
 /*
@@ -248,4 +248,31 @@ body,
 
 .cards__Composition {
   @apply mb-3 font-normal text-gray-700 dark:text-gray-400
+}
+
+
+/*
+-- bugger --
+*/
+.list-item{
+  @apply text-xl list-none py-1 w-36 block md:hidden ml-10 rounded-md text-right bg-gray-50 bg-opacity-75 sm:text-2xl
+}
+.list-item-text {
+  @apply opacity-80 hover:opacity-100 hover:text-myBlue hover:font-bold px-2
+}
+.cancel-btn {
+  @apply hover:w-7 hover:h-7 w-6 h-6
+}
+
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
