@@ -16,8 +16,8 @@ export default function CardList(props) {
         <div className="cards__wrapper">
           <div className="cards__professor">
             <CardItem
-              englishName={professorData.englishName}
-              koreaName={professorData.koreaName}
+              name_en={professorData.name_en}
+              name_kr={professorData.name_kr}
               affiliation={professorData.affiliation} //소속기관
               researchField={professorData.researchField} //연구분야
               email={professorData.email}
@@ -25,19 +25,20 @@ export default function CardList(props) {
             />
           </div>
           <ul className="cards__items">
-            {datas.map((data) => {
-              return (
-                <CardItem
-                  key={data.id}
-                  img={data.img}
-                  englishName={data.englishName}
-                  koreaName={data.koreaName}
-                  affiliation={data.affiliation} //소속기관
-                  researchField={data.researchField}
-                  email={data.email}
-                />
-              );
-            })}
+            {datas.length > 0 &&
+              datas.map((data) => {
+                return (
+                  <CardItem
+                    key={data.id}
+                    img={data.img}
+                    name_en={data.name_en}
+                    name_kr={data.name_kr}
+                    affiliation={data.affiliation} //소속기관
+                    researchField={data.researchField}
+                    email={data.email}
+                  />
+                );
+              })}
           </ul>
         </div>
       </div>
