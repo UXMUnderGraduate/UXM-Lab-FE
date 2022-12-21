@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NoticeItem from './NoticeItem';
+import axios from 'axios';
 
 const dummy = [
   {
@@ -44,9 +45,24 @@ const dummy = [
   },
 ];
 
+const getData = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_URL}/api/publications`
+    );
+    console.log(response.data);
+  } catch (err) {
+    console.log('error >>>', err);
+  }
+};
+
 const NoticeList = () => {
+  useEffect(() => {
+    getData();
+  }, []);
+  
   return (
-    <ul className='notice-list'>
+    <ul className="notice-list">
       {dummy.map((item) => (
         <NoticeItem
           key={item.id}
