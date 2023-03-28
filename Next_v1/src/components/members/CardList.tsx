@@ -27,7 +27,7 @@ const dummy = [
     researchField: 'BlockChain', //연구분야
     email: 'glodmunt@mju.ac.kr',
     degree: 'Professor',
-    img: '/images/professor.jpeg',
+    img: 'https://user-images.githubusercontent.com/80405708/228130702-beabc359-d50c-4d9b-b46c-90d7b5ba6061.jpeg',
   },
   {
     id: 2, //index
