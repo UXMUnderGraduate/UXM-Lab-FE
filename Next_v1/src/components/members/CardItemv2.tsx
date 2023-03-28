@@ -2,11 +2,16 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 
 interface CardItemv2Props {
+  id?: number;
   img: string;
   nameKr: string;
-  nameEn: string;
-  email: string;
-  position: string;
+  nameEn?: string;
+  email?: string;
+  position?: string;
+  affiliation?: string;
+  isAlumni?: boolean;
+  researchField?: string;
+  degree?: string;
 }
 
 const CardItemv2: FC<CardItemv2Props> = (props) => {
@@ -16,7 +21,7 @@ const CardItemv2: FC<CardItemv2Props> = (props) => {
       <div className="sm:pl-5 sm:pt-0 pt-3">
         <h1 className="font-black text-xl sm:text-3xl">{props.nameKr + '(' + props.nameEn + ')'}</h1>
         <h2 className="font-bold sm:text-2xl">{props.position}</h2>
-        <h4 className=" font-medium sm:mb-5 sm:text-lg">Department of Convergence Software, Myongji Univ, Republic of Korea</h4>
+        <h4 className=" font-medium sm:mb-5 sm:text-lg">{props.affiliation}</h4>
         <div className="flex">
           <span className="font-bold sm:text-xl">E-mail : &nbsp;</span>
           <span>

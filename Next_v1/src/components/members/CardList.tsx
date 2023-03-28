@@ -22,10 +22,10 @@ const dummy = [
     id: 1, //index
     nameEn: 'SangKyon Kim',
     nameKr: '김상균',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: 'BlockChain', //연구분야
-    email: 'glodmunt@mju.ac.kr',
+    email: 'goldmunt@gmail.com',
     degree: 'Professor',
     img: '/images/professor.jpeg',
   },
@@ -33,7 +33,7 @@ const dummy = [
     id: 2, //index
     nameEn: 'MinHyuk Jeong',
     nameKr: '정민혁',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Computer Engineering, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'jmh8900@gmail.com',
@@ -44,7 +44,7 @@ const dummy = [
     id: 3, //index
     nameEn: 'Heesoo Choi',
     nameKr: '최희수',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'cocamon85@gmail.com',
@@ -55,7 +55,7 @@ const dummy = [
     id: 4, //index
     nameEn: 'Minsu Kim',
     nameKr: '김민수',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'minsu020302@gmail.com',
@@ -66,7 +66,7 @@ const dummy = [
     id: 5, //index
     nameEn: 'Donghyeok Jang',
     nameKr: '장동혁',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'lotto9803@naver.com',
@@ -77,7 +77,7 @@ const dummy = [
     id: 6, //index
     nameEn: 'Sohyeon Kim ',
     nameKr: '김소현',
-    affiliation: 'Myongji Univ', //소속기관이름
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관이름
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'sooooooohyeon5@naver.com',
@@ -88,7 +88,7 @@ const dummy = [
     id: 7, //index
     nameEn: 'Gi Woong Chae',
     nameKr: '채기웅',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'rldndco@mju.ac.kr',
@@ -99,7 +99,7 @@ const dummy = [
     id: 8, //index
     nameEn: 'Seonjae Hyun',
     nameKr: '현선재',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'hsj106@mju.ac.kr',
@@ -110,7 +110,7 @@ const dummy = [
     id: 9, //index
     nameEn: 'SuJi Kim',
     nameKr: '김수지',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'doyeon96@gmail.com',
@@ -121,7 +121,7 @@ const dummy = [
     id: 10, //index
     nameEn: 'Younghwan Kim',
     nameKr: '김영환',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'dudghks021121@gmail.com',
@@ -132,7 +132,7 @@ const dummy = [
     id: 11, //index
     nameEn: 'DoJin You',
     nameKr: '유도진',
-    affiliation: 'Myongji Univ', //소속기관
+    affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: true,
     researchField: '없는디..', //연구분야
     email: 'djyou128@gmail.com',
@@ -156,29 +156,29 @@ const CardList: React.FC = () => {
   return (
     <div className="w-full text-center">
       <TitleHorizon>Professor</TitleHorizon>
-      <CardItemv2 nameKr={dummy[0].nameKr} nameEn={dummy[0].nameEn} img={dummy[0].img} position={dummy[0].degree} email={dummy[0].email} />
+      <CardItemv2 nameKr={dummy[0].nameKr} nameEn={dummy[0].nameEn} img={dummy[0].img} position={dummy[0].degree} email={dummy[0].email} affiliation={dummy[0].affiliation} />
 
       <TitleHorizon>Ph.D Candidate</TitleHorizon>
       {Ph_D_C_List &&
         Ph_D_C_List.map((data) => {
-          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} />;
+          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} affiliation={data.affiliation} />;
         })}
       {/* <TitleHorizon>Ph.D Student</TitleHorizon> */}
       <TitleHorizon>MS Students</TitleHorizon>
       {MSList &&
         MSList.map((data) => {
-          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} />;
+          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} affiliation={data.affiliation} />;
         })}
       <TitleHorizon>BS Students</TitleHorizon>
       {BSList &&
         BSList.map((data) => {
-          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} />;
+          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} affiliation={data.affiliation} />;
         })}
       {/* <CardItemv2 nameKr={dummy[3].nameKr} nameEn={dummy[3].nameEn} img={dummy[3].img} position={dummy[3].degree} email={dummy[3].email} /> */}
       <TitleHorizon>Alumni</TitleHorizon>
       {alumniList &&
         alumniList.map((data) => {
-          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} />;
+          return <CardItemv2 key={data.id} nameKr={data.nameKr} nameEn={data.nameEn} img={data.img} position={data.degree} email={data.email} affiliation={data.affiliation} />;
         })}
     </div>
   );
