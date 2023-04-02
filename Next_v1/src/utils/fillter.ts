@@ -7,7 +7,8 @@ interface Member {
   researchField: string;
   email: string;
   degree: string;
-  img: string;
+  img?: string;
+  companyAndDepartment?: string;
 }
 
 export function filteredList(dummy: Member[], degreeFilter: string[], isAlumniFilter: boolean): Member[] {
