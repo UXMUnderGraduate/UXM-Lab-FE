@@ -82,7 +82,7 @@ body {
   @apply w-full h-mobileScreen sm:h-screen flex flex-col justify-evenly items-center pt-14 sm:pt-16;
 }
 .article-container_1 {
-  @apply w-full flex flex-col sm:flex-row justify-evenly items-center sm:mt-10 drop-shadow-sm;
+  @apply w-full flex flex-col sm:flex-row justify-evenly mr-4 items-center sm:mt-10 drop-shadow-sm;
 }
 .down-button {
   @apply p-1 animate-bounce-slow mt-5;
