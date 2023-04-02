@@ -17,7 +17,7 @@ const Index: React.FC<IndexProps> = (props) => {
           <p className="font-semibold text-xl sm:text-2xl">명지대학교 UX Media 연구실</p>
         </div>
         <div className="my-5 sm:my-0">
-          <Image src={'/images/1.gif'} width={550} height={550} alt="metaverse" className="w-44 h-44 sm:w-80 sm:h-80" />
+          <Image src={'/images/1.gif'} width={550} height={550} alt="metaverse" className="w-44 h-44 md:w-60 md:h-60 lg:w-80 lg:h-80" />
         </div>
       </div>
       <DownButton onMoveToElement={props.onMoveToElement} />
