@@ -1,3 +1,3 @@
 # UXM-Lab-FE
 http://uxm.mju.ac.kr
-<img width="1270" alt="Screenshot 2023-03-26 at 20 49 15" src="https://user-images.githubusercontent.com/80405708/227773620-cd7b0329-ed0f-4329-baf9-5e140ab2d28f.png">
+<img width="1512" alt="Screenshot 2023-04-02 at 22 55 31" src="https://user-images.githubusercontent.com/80405708/229357390-434f22ed-beb8-4fd1-88f3-b94d2efd9652.png">
