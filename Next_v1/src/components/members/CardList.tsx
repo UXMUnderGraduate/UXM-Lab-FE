@@ -14,7 +14,7 @@ const dummy = [
     isAlumni: false,
     researchField: 'BlockChain', //연구분야
     email: 'goldmunt@gmail.com',
-    degree: 'Adivisor',
+    degree: 'Advisor',
     img: '/images/professor.jpeg',
   },
   {
@@ -63,7 +63,7 @@ const dummy = [
   },
   {
     id: 6, //index
-    nameEn: 'Sohyeon Kim ',
+    nameEn: 'Sohyeon Kim',
     nameKr: '김소현',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관이름
     isAlumni: false,
