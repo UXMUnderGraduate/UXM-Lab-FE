@@ -143,17 +143,17 @@ const dummy = [
 ];
 
 const CardList: React.FC = () => {
-  const BSList = filteredList(dummy, ['Adivisor', 'MS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const BSList = filteredList(dummy, ['Advisor', 'MS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const MSList = filteredList(dummy, ['Adivisor', 'BS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const MSList = filteredList(dummy, ['Advisor', 'BS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const Ph_D_C_List = filteredList(dummy, ['Adivisor', 'BS Student', 'MS Student', 'Ph.D. Student'], true);
+  const Ph_D_C_List = filteredList(dummy, ['Advisor', 'BS Student', 'MS Student', 'Ph.D. Student'], true);
 
-  // console.log(Ph_D_C_List);
-  const Ph_D_S_List = filteredList(dummy, ['Adivisor', 'BS Student', 'MS Student', 'Ph.D. Candidate'], true);
+  const Ph_D_S_List = filteredList(dummy, ['Advisor', 'BS Student', 'MS Student', 'Ph.D. Candidate'], true);
 
   const alumniList = filteredList(dummy, [], false);
 
+  console.log(BSList);
   return (
     <div className="w-full text-center">
       <TitleHorizon>Professor</TitleHorizon>
