@@ -47,7 +47,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'minsu020302@gmail.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/minsu.jpg',
   },
   {
@@ -58,7 +58,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'lotto9803@naver.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/donghyeok.jpeg',
   },
   {
@@ -69,7 +69,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'sooooooohyeon5@naver.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/sohyeon.jpeg',
   },
   {
@@ -80,7 +80,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'rldndco@mju.ac.kr',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/giwoong.jpeg',
   },
   {
@@ -91,7 +91,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'hsj106@mju.ac.kr',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/seonjae.jpg',
   },
   {
@@ -113,7 +113,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'dudghks021121@gmail.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/younhwan.jpeg',
   },
   {
@@ -124,7 +124,7 @@ const dummy = [
     isAlumni: true,
     researchField: '없는디..', //연구분야
     email: 'djyou128@gmail.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/dojin.jpeg',
     companyAndDepartment: 'VCNC backend Developor',
   },
@@ -136,24 +136,24 @@ const dummy = [
     isAlumni: true,
     researchField: '없는디..', //연구분야
     email: 'test@test.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '',
     companyAndDepartment: 'VCNC backend Developor',
   },
 ];
 
 const CardList: React.FC = () => {
-  const BSList = filteredList(dummy, ['Advisor', 'MS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const UGList = filteredList(dummy, ['Advisor', 'MS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const MSList = filteredList(dummy, ['Advisor', 'BS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const MSList = filteredList(dummy, ['Advisor', 'Undergraduate student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const Ph_D_C_List = filteredList(dummy, ['Advisor', 'BS Student', 'MS Student', 'Ph.D. Student'], true);
+  const Ph_D_C_List = filteredList(dummy, ['Advisor', 'Undergraduate student', 'MS Student', 'Ph.D. Student'], true);
 
-  const Ph_D_S_List = filteredList(dummy, ['Advisor', 'BS Student', 'MS Student', 'Ph.D. Candidate'], true);
+  const Ph_D_S_List = filteredList(dummy, ['Advisor', 'Undergraduate student', 'MS Student', 'Ph.D. Candidate'], true);
 
   const alumniList = filteredList(dummy, [], false);
 
-  console.log(BSList);
+  console.log(UGList);
   return (
     <div className="w-full text-center">
       <TitleHorizon>Professor</TitleHorizon>
@@ -202,16 +202,16 @@ const CardList: React.FC = () => {
             />
           );
         })}
-      <TitleHorizon>BS Students</TitleHorizon>
-      {BSList &&
-        BSList.map((data) => {
+      <TitleHorizon>Undergraduate students</TitleHorizon>
+      {UGList &&
+        UGList.map((data) => {
           return (
             <CardItemv2
               key={data.id}
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={'BS Student'}
+              position={'Undergraduate student'}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}
