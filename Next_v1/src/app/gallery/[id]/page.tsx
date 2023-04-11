@@ -3,6 +3,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import NoticeHeader from '@/components/notices/NoticeHeader';
+import { useEffect, useState } from 'react';
 
 type Props = {
   params: {
@@ -71,7 +72,13 @@ const dummy = [
 
 const GalleryDetail = () => {
   const currentPath = usePathname();
-  const currentId = parseInt(currentPath.charAt(currentPath.length - 1));
+  const [currentId, setCurrentId] = useState(0);
+
+  useEffect(() => {
+    if (currentPath) {
+      setCurrentId(parseInt(currentPath.charAt(currentPath.length - 1)));
+    }
+  }, [currentPath]);
 
   return (
     <article className="notice-detail">

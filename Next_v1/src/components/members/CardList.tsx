@@ -14,7 +14,7 @@ const dummy = [
     isAlumni: false,
     researchField: 'BlockChain', //연구분야
     email: 'goldmunt@gmail.com',
-    degree: 'Adivisor',
+    degree: 'Advisor',
     img: '/images/professor.jpeg',
   },
   {
@@ -23,7 +23,7 @@ const dummy = [
     nameKr: '정민혁',
     affiliation: 'Department of Computer Engineering, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'jmh8900@gmail.com',
     degree: 'Ph.D. Candidate',
     img: '/images/minhyuk.jpeg',
@@ -34,9 +34,9 @@ const dummy = [
     nameKr: '최희수',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'cocamon85@gmail.com',
-    degree: 'MS Student',
+    degree: "master's student",
     img: '/images/heesoo.jpg',
   },
   {
@@ -45,9 +45,9 @@ const dummy = [
     nameKr: '김민수',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'minsu020302@gmail.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/minsu.jpg',
   },
   {
@@ -56,20 +56,20 @@ const dummy = [
     nameKr: '장동혁',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: 'AR', //연구분야
     email: 'lotto9803@naver.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/donghyeok.jpeg',
   },
   {
     id: 6, //index
-    nameEn: 'Sohyeon Kim ',
+    nameEn: 'Sohyeon Kim',
     nameKr: '김소현',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관이름
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: 'AR', //연구분야
     email: 'sooooooohyeon5@naver.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/sohyeon.jpeg',
   },
   {
@@ -78,9 +78,9 @@ const dummy = [
     nameKr: '채기웅',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: 'block chain', //연구분야
     email: 'rldndco@mju.ac.kr',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/giwoong.jpeg',
   },
   {
@@ -89,9 +89,9 @@ const dummy = [
     nameKr: '현선재',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'hsj106@mju.ac.kr',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/seonjae.jpg',
   },
   {
@@ -100,9 +100,9 @@ const dummy = [
     nameKr: '김수지',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'doyeon96@gmail.com',
-    degree: 'MS Student',
+    degree: "master's student",
     img: '/images/SuJi.jpg',
   },
   {
@@ -111,9 +111,9 @@ const dummy = [
     nameKr: '김영환',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: false,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'dudghks021121@gmail.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/younhwan.jpeg',
   },
   {
@@ -122,9 +122,9 @@ const dummy = [
     nameKr: '유도진',
     affiliation: 'Department of Convergence Software, Myongji Univ, Republic of Korea', //소속기관
     isAlumni: true,
-    researchField: '없는디..', //연구분야
+    researchField: '???', //연구분야
     email: 'djyou128@gmail.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '/images/dojin.jpeg',
     companyAndDepartment: 'VCNC backend Developor',
   },
@@ -136,24 +136,24 @@ const dummy = [
     isAlumni: true,
     researchField: '없는디..', //연구분야
     email: 'test@test.com',
-    degree: 'BS Student',
+    degree: 'Undergraduate student',
     img: '',
     companyAndDepartment: 'VCNC backend Developor',
   },
 ];
 
 const CardList: React.FC = () => {
-  const BSList = filteredList(dummy, ['Adivisor', 'MS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const UGList = filteredList(dummy, ['Advisor', "master's student", 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const MSList = filteredList(dummy, ['Adivisor', 'BS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const MSList = filteredList(dummy, ['Advisor', 'Undergraduate student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const Ph_D_C_List = filteredList(dummy, ['Adivisor', 'BS Student', 'MS Student', 'Ph.D. Student'], true);
+  const Ph_D_C_List = filteredList(dummy, ['Advisor', 'Undergraduate student', "master's student", 'Ph.D. Student'], true);
 
-  // console.log(Ph_D_C_List);
-  const Ph_D_S_List = filteredList(dummy, ['Adivisor', 'BS Student', 'MS Student', 'Ph.D. Candidate'], true);
+  const Ph_D_S_List = filteredList(dummy, ['Advisor', 'Undergraduate student', "master's student", 'Ph.D. Candidate'], true);
 
   const alumniList = filteredList(dummy, [], false);
 
+  console.log(UGList);
   return (
     <div className="w-full text-center">
       <TitleHorizon>Professor</TitleHorizon>
@@ -186,7 +186,7 @@ const CardList: React.FC = () => {
           );
         })}
       {/* <TitleHorizon>Ph.D Student</TitleHorizon> */}
-      <TitleHorizon>MS Students</TitleHorizon>
+      <TitleHorizon>{"master's students"}</TitleHorizon>
       {MSList &&
         MSList.map((data) => {
           return (
@@ -195,23 +195,23 @@ const CardList: React.FC = () => {
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={'MS Student'}
+              position={"master's student"}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}
             />
           );
         })}
-      <TitleHorizon>BS Students</TitleHorizon>
-      {BSList &&
-        BSList.map((data) => {
+      <TitleHorizon>Undergraduate students</TitleHorizon>
+      {UGList &&
+        UGList.map((data) => {
           return (
             <CardItemv2
               key={data.id}
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={'BS Student'}
+              position={'Undergraduate student'}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}

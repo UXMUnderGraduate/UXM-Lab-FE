@@ -2,6 +2,7 @@
 import NoticeContent from '@/components/notices/NoticeContent';
 import NoticeHeader from '@/components/notices/NoticeHeader';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const dummy = [
   {
@@ -170,9 +171,14 @@ const dummy = [
 
 const NoticeDetail: React.FC = () => {
   const currentPath = usePathname();
+  const [currentId, setCurrentId] = useState(0);
 
-  const currentId = parseInt(currentPath.charAt(currentPath.length - 1));
-  // console.log(currentId);
+  useEffect(() => {
+    if (currentPath) {
+      setCurrentId(parseInt(currentPath.charAt(currentPath.length - 1)));
+    }
+  }, [currentPath]);
+
   return (
     <article className="notice-detail">
       <NoticeHeader title={dummy[currentId].title} createdAt={dummy[currentId].createdAt} />
