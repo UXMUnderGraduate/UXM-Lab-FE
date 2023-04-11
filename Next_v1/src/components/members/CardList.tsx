@@ -186,7 +186,7 @@ const CardList: React.FC = () => {
           );
         })}
       {/* <TitleHorizon>Ph.D Student</TitleHorizon> */}
-      <TitleHorizon>master's students</TitleHorizon>
+      <TitleHorizon>{"master's students"}</TitleHorizon>
       {MSList &&
         MSList.map((data) => {
           return (
