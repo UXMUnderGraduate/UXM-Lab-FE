@@ -36,7 +36,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'cocamon85@gmail.com',
-    degree: 'MS Student',
+    degree: "master's student",
     img: '/images/heesoo.jpg',
   },
   {
@@ -102,7 +102,7 @@ const dummy = [
     isAlumni: false,
     researchField: '없는디..', //연구분야
     email: 'doyeon96@gmail.com',
-    degree: 'MS Student',
+    degree: "master's student",
     img: '/images/SuJi.jpg',
   },
   {
@@ -143,13 +143,13 @@ const dummy = [
 ];
 
 const CardList: React.FC = () => {
-  const UGList = filteredList(dummy, ['Advisor', 'MS Student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
+  const UGList = filteredList(dummy, ['Advisor', "master's student", 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
   const MSList = filteredList(dummy, ['Advisor', 'Undergraduate student', 'Ph.D. Student', 'Ph.D. Candidate'], true);
 
-  const Ph_D_C_List = filteredList(dummy, ['Advisor', 'Undergraduate student', 'MS Student', 'Ph.D. Student'], true);
+  const Ph_D_C_List = filteredList(dummy, ['Advisor', 'Undergraduate student', "master's student", 'Ph.D. Student'], true);
 
-  const Ph_D_S_List = filteredList(dummy, ['Advisor', 'Undergraduate student', 'MS Student', 'Ph.D. Candidate'], true);
+  const Ph_D_S_List = filteredList(dummy, ['Advisor', 'Undergraduate student', "master's student", 'Ph.D. Candidate'], true);
 
   const alumniList = filteredList(dummy, [], false);
 
@@ -186,7 +186,7 @@ const CardList: React.FC = () => {
           );
         })}
       {/* <TitleHorizon>Ph.D Student</TitleHorizon> */}
-      <TitleHorizon>MS Students</TitleHorizon>
+      <TitleHorizon>master's students</TitleHorizon>
       {MSList &&
         MSList.map((data) => {
           return (
@@ -195,7 +195,7 @@ const CardList: React.FC = () => {
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={'MS Student'}
+              position={"master's student"}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}
