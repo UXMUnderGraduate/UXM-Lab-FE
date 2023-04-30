@@ -1,6 +1,7 @@
 'use client';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useCookies } from 'react-cookie';
 
 const LoginForm: React.FC = () => {
   const [form, setForm] = useState({
@@ -8,24 +9,25 @@ const LoginForm: React.FC = () => {
     password: '',
   });
 
-  const handleChange = (e) => {
+  const [cookies, setCookies] = useCookies(['token']);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(form);
     const path = process.env.NEXT_PUBLIC_SERVER_PATH;
     try {
       const response = await axios.post(`${path}/auth/signIn`, form);
-      console.log(response.data);
-      // Handle response here
+      setCookies('token', response.data.accessToken);
+      window.location.href = '/admin';
     } catch (error) {
       console.error(error);
-      // Handle error here
+      alert('ID 또는 비밀번호가 일치하지 않습니다.');
     }
   };
 
