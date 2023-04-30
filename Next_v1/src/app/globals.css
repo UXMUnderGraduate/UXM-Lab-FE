@@ -319,7 +319,7 @@ img {
   }
 }
 
-.slide-left {
+.animate-slide-left {
   animation-name: slide-left;
   animation-duration: 0.5s;
 }
