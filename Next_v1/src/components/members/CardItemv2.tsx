@@ -18,7 +18,9 @@ interface CardItemv2Props {
 const CardItemv2: FC<CardItemv2Props> = (props) => {
   return (
     <div className="sm:flex p-5 md:pl-14 text-left py-6">
-      {props.img && <Image src={props.img} alt={props.nameKr} width={500} height={500} className="w-full  sm:w-52 sm:h-full" />}
+      {props.img && (
+        <Image src={`${process.env.NEXT_PUBLIC_SERVER_PATH}/images/${props.img}`} alt={props.nameKr} width={500} height={500} className="w-full  sm:w-52 sm:h-full" />
+      )}
       <div className="sm:pl-5 sm:pt-0 pt-3">
         <h1 className="font-black text-xl sm:text-3xl">{props.nameKr + '(' + props.nameEn + ')'}</h1>
         <h2 className="font-bold sm:text-2xl">{props.degree}</h2>
