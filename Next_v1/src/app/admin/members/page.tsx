@@ -11,7 +11,7 @@ export default async function page() {
       <Layout backPath="/admin">
         <GridContainer>
           {member.map((item) => (
-            <DetailCard {...item} />
+            <DetailCard key={item.id} {...item} />
           ))}
         </GridContainer>
       </Layout>

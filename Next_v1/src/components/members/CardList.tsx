@@ -37,6 +37,7 @@ export default function CardList() {
         Advisor.map((data) => {
           return (
             <CardItemv2
+              key={data.id}
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
