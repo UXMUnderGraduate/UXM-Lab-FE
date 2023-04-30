@@ -3,7 +3,7 @@
 // import axios from 'axios';
 import CardItemv2 from './CardItemv2';
 import TitleHorizon from './TitleHorizon';
-import { filteredList } from '../../utils/fillter';
+import { filteredList } from '../../utils/filter';
 
 const dummy = [
   {
@@ -124,9 +124,9 @@ const dummy = [
     isAlumni: true,
     researchField: '???', //연구분야
     email: 'djyou128@gmail.com',
-    degree: 'Undergraduate student',
+    degree: 'BS student',
     img: '/images/dojin.jpeg',
-    companyAndDepartment: 'VCNC backend Developor',
+    company: 'VCNC backend Developor',
   },
   {
     id: 12, //index
@@ -138,7 +138,7 @@ const dummy = [
     email: 'test@test.com',
     degree: 'Undergraduate student',
     img: '',
-    companyAndDepartment: 'VCNC backend Developor',
+    company: 'VCNC backend Developor',
   },
 ];
 
@@ -161,7 +161,7 @@ const CardList: React.FC = () => {
         nameKr={dummy[0].nameKr}
         nameEn={dummy[0].nameEn}
         img={dummy[0].img}
-        position={dummy[0].degree}
+        degree={dummy[0].degree}
         email={dummy[0].email}
         affiliation={dummy[0].affiliation}
         else={
@@ -178,7 +178,7 @@ const CardList: React.FC = () => {
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={'Ph.D Candidate'}
+              degree={'Ph.D Candidate'}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}
@@ -195,7 +195,7 @@ const CardList: React.FC = () => {
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={"master's student"}
+              degree={"master's student"}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}
@@ -211,14 +211,14 @@ const CardList: React.FC = () => {
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={'Undergraduate student'}
+              degree={'Undergraduate student'}
               researchField={data.researchField}
               email={data.email}
               affiliation={data.affiliation}
             />
           );
         })}
-      {/* <CardItemv2 nameKr={dummy[3].nameKr} nameEn={dummy[3].nameEn} img={dummy[3].img} position={dummy[3].degree} email={dummy[3].email} /> */}
+      {/* <CardItemv2 nameKr={dummy[3].nameKr} nameEn={dummy[3].nameEn} img={dummy[3].img} degree={dummy[3].degree} email={dummy[3].email} /> */}
       <TitleHorizon>Alumni</TitleHorizon>
       {alumniList &&
         alumniList.map((data) => {
@@ -228,10 +228,10 @@ const CardList: React.FC = () => {
               nameKr={data.nameKr}
               nameEn={data.nameEn}
               img={data.img}
-              position={data.degree}
+              degree={data.degree}
               email={data.email}
               affiliation={data.affiliation}
-              companyAndDepartment={data.companyAndDepartment}
+              company={data.company}
             />
           );
         })}
