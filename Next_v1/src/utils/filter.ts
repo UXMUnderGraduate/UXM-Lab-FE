@@ -1,19 +1,8 @@
-interface Member {
-  id: number;
-  nameEn: string;
-  nameKr: string;
-  affiliation: string;
-  isAlumni: boolean;
-  researchField: string;
-  email: string;
-  degree: string;
-  img?: string;
-  company?: string;
-}
+import { userType } from '@/types';
 
-export function filteredList(dummy: Member[], degreeFilter: string[], isAlumniFilter: boolean): Member[] {
-  // console.log(dummy, degreeFilter, isAlumniFilter);
-  return dummy.filter((obj) => {
+export function filteredList(user: userType[], degreeFilter: string[], isAlumniFilter: boolean): userType[] {
+  // console.log(user, degreeFilter, isAlumniFilter);
+  return user.filter((obj) => {
     return obj.isAlumni !== isAlumniFilter && !degreeFilter.includes(obj.degree);
   });
 }
