@@ -6,9 +6,11 @@ export default function page() {
   return (
     <>
       <Heading>Admin</Heading>
-      <div className="mx-auto">
+      <div className="w-full mx-auto">
         <div className="grid lg:grid-cols-5 sm:grid-cols-3 grid-1 gap-4">
-          <Link href={'admin/members'} className="w-52 text-center space-y-3 text-2xl font-bold">
+          <Link
+            href={'admin/members'}
+            className="w-48 h-48 flex flex-col justify-center hover:bg-slate-500 hover:text-white text-center space-y-3 text-2xl font-bold border border-1 shadow-inner rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-12 h-12 mx-auto">
               <path
                 stroke-linecap="round"
@@ -18,7 +20,9 @@ export default function page() {
             </svg>
             <p>Member</p>
           </Link>
-          <Link href={'admin/research'} className="w-52 text-center space-y-3 text-2xl font-bold">
+          <Link
+            href={'admin/research'}
+            className="w-48 h-48 flex flex-col justify-center hover:bg-slate-500 hover:text-white text-center space-y-3 text-2xl font-bold border border-1 shadow-inner rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto">
               <path
                 strokeLinecap="round"
@@ -28,7 +32,9 @@ export default function page() {
             </svg>
             <p>Research</p>
           </Link>
-          <Link href={'admin/publication'} className="w-52 text-center space-y-3 text-2xl font-bold">
+          <Link
+            href={'admin/publication'}
+            className="w-48 h-48 flex flex-col justify-center hover:bg-slate-500 hover:text-white text-center space-y-3 text-2xl font-bold border border-1 shadow-inner rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto">
               <path
                 strokeLinecap="round"
@@ -38,7 +44,9 @@ export default function page() {
             </svg>
             <p>Publication</p>
           </Link>
-          <Link href={'admin/notices'} className="w-52 text-center space-y-3 text-2xl font-bold">
+          <Link
+            href={'admin/notices'}
+            className="w-48 h-48 flex flex-col justify-center hover:bg-slate-500 hover:text-white text-center space-y-3 text-2xl font-bold border border-1 shadow-inner rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto">
               <path
                 strokeLinecap="round"
@@ -48,7 +56,9 @@ export default function page() {
             </svg>
             <p>Notices</p>
           </Link>
-          <Link href={'admin/gallery'} className="w-52 text-center space-y-3 text-2xl font-bold">
+          <Link
+            href={'admin/gallery'}
+            className="w-48 h-48 flex flex-col justify-center hover:bg-slate-500 hover:text-white text-center space-y-3 text-2xl font-bold border border-1 shadow-inner rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 mx-auto">
               <path
                 strokeLinecap="round"
