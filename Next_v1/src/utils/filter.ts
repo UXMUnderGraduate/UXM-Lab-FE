@@ -8,7 +8,7 @@ interface Member {
   email: string;
   degree: string;
   img?: string;
-  companyAndDepartment?: string;
+  company?: string;
 }
 
 export function filteredList(dummy: Member[], degreeFilter: string[], isAlumniFilter: boolean): Member[] {
