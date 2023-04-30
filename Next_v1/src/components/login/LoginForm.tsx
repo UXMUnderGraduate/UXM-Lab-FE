@@ -1,72 +1,60 @@
+'use client';
 import axios from 'axios';
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState } from 'react';
 
 const LoginForm: React.FC = () => {
   const [form, setForm] = useState({
-    userID: '',
-    userPW: '',
+    email: '',
+    password: '',
   });
-  const [disabled, setDisabled] = useState(false);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const nextForm = {
+  const handleChange = (e) => {
+    setForm({
       ...form,
-      [e.target.id]: e.target.value,
-    };
-    // console.log(nextForm);
-    setForm(nextForm);
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setDisabled(true);
+    console.log(form);
+    const path = process.env.NEXT_PUBLIC_SERVER_PATH;
     try {
-      await axios.post(`http://${process.env.NEXT_PUBLIC_URL}/api/login`, {
-        id: form.userID,
-        password: form.userPW,
-      });
-      // console.log('성공');
-    } catch (err) {
-      console.error(err);
+      const response = await axios.post(`${path}/auth/signIn`, form);
+      console.log(response.data);
+      // Handle response here
+    } catch (error) {
+      console.error(error);
+      // Handle error here
     }
-    setDisabled(false);
   };
 
   return (
-    <>
-      <form className="flex flex-col w-3/5 h-1/3 justify-center" onSubmit={handleSubmit}>
-        <div className="m-auto">
-          <label className="text-myIndigo font-medium block text-lg">ID</label>
-          <input
-            id="userID"
-            type="text"
-            placeholder="ID"
-            onChange={handleChange}
-            required
-            className="my-1 h-10 w-full rounded-md bg-myGray p-3 font-medium outline-myBlue shadow-inner hover:bg-blue-100 hover: border-myBlue"
+    <form onSubmit={handleSubmit} className=" bg-gray-200 rounded-sm p-4 w-1/3 flex flex-col space-y-5">
+      <div className="flex space-x-5">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"
           />
-        </div>
-        <div className="m-auto">
-          <label className="text-myIndigo font-medium block text-lg">PW</label>
-          <input
-            id="userPW"
-            type="password"
-            placeholder="PW"
-            onChange={handleChange}
-            required
-            className="my-1 h-10 w-full rounded-md bg-myGray p-3 font-medium outline-myBlue shadow-inner hover:bg-blue-100 hover: border-myBlue"
+        </svg>
+        <input type="text" name="email" onChange={handleChange} placeholder="ID" className="w-full" />
+      </div>
+      <div className="flex space-x-5">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
           />
-        </div>
-        <div className="m-auto">
-          <button
-            type="submit"
-            className="my-1 h-8 w-32 bg-myIndigo rounded-md text-white font-medium mt-3 px-8 active:bg-myBlue shadow-inner hover:bg-myBlue"
-            disabled={disabled}>
-            submit
-          </button>
-        </div>
-      </form>
-    </>
+        </svg>
+        <input type="password" name="password" onChange={handleChange} placeholder="Password" className="w-full" />
+      </div>
+      <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+        Login
+      </button>
+    </form>
   );
 };
 
