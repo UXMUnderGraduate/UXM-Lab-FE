@@ -7,22 +7,23 @@ interface CardItemv2Props {
   nameKr: string;
   nameEn?: string;
   email?: string;
-  position?: string;
+  degree?: string;
   affiliation?: string;
   isAlumni?: boolean;
   researchField?: string;
-  degree?: string;
   else?: string;
-  companyAndDepartment?: string;
+  company?: string;
 }
 
 const CardItemv2: FC<CardItemv2Props> = (props) => {
   return (
     <div className="sm:flex p-5 md:pl-14 text-left py-6">
-      {props.img && <Image src={props.img} alt={props.nameKr} width={500} height={500} className="w-full  sm:w-52 sm:h-full" />}
+      {props.img && (
+        <Image src={`${process.env.NEXT_PUBLIC_SERVER_PATH}/images/${props.img}`} alt={props.nameKr} width={500} height={500} className="w-full  sm:w-52 sm:h-full" />
+      )}
       <div className="sm:pl-5 sm:pt-0 pt-3">
         <h1 className="font-black text-xl sm:text-3xl">{props.nameKr + '(' + props.nameEn + ')'}</h1>
-        <h2 className="font-bold sm:text-2xl">{props.position}</h2>
+        <h2 className="font-bold sm:text-2xl">{props.degree}</h2>
         <h4 className=" font-medium sm:mb-5 sm:text-lg">{props.affiliation}</h4>
         <div className="flex">
           <span className="font-bold sm:text-xl">E-mail : &nbsp;</span>
@@ -38,11 +39,11 @@ const CardItemv2: FC<CardItemv2Props> = (props) => {
             </span>
           </div>
         )}
-        {props.companyAndDepartment && (
+        {props.company && (
           <div className="flex">
             <span className="font-bold sm:text-xl">Company : &nbsp;</span>
             <span>
-              <h4 className=" font-medium sm:text-xl">{props.companyAndDepartment}</h4>
+              <h4 className=" font-medium sm:text-xl">{props.company}</h4>
             </span>
           </div>
         )}
