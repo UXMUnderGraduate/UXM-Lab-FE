@@ -54,7 +54,7 @@ const Burger: React.FC<BurgerProps> = ({ toggle, setToggle }) => {
 
   return (
     <div
-      className={`flex justify-center flex-col align-center bg-white h-screen -m-8 w-1/3 mt-1 shadow-2xl transition-transform duration-500 ${
+      className={`flex justify-center flex-col align-center bg-white h-screen -m-8 w-52 mt-1 shadow-2xl transition-transform duration-500 ${
         toggle ? 'animate-slide-right' : 'animate-slide-left'
       }`}
       ref={outside}>
