@@ -34,7 +34,7 @@ export type noticeType = {
   id: string;
   title: string;
   contents: string;
-  createAt?: string;
+  createdAt: string;
   updateAt?: string;
 };
 
@@ -43,4 +43,6 @@ export type galleryType = {
   title: string;
   contents: string;
   imgUrls: string[];
+  createdAt: string;
+  updatedAt: string;
 };
