@@ -39,7 +39,8 @@ export function groupDataByYear(data: any[]): { year: string; items: any[] }[] {
   return sortedData;
 }
 
-export function sortDataByYear(data: any[]): { year: string; items: any[] }[] {
+export async function sortDataByYear(): Promise<{ year: string; items: any[] }[]> {
+  const data = await getPublicationAll();
   const sortedData = groupDataByYear(data);
 
   sortedData.sort((a, b) => Number(b.year) - Number(a.year));
