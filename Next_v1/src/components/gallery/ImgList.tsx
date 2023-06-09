@@ -1,109 +1,97 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import ImgCard from './ImgCard';
-// import SkeletonElement from '../ui/SkeletonElement';
-// import axios from 'axios';
+import SkeletonElement from '../ui/SkeletonElement';
+import { getGalleries } from '@/service/gallery';
+import { galleryType } from '@/types';
 
-const dummy = [
-  {
-    id: 1,
-    title: 'What is Lorem Ipsum?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 2,
-    title: 'Why do we use it?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 3,
-    title: 'Where does it come from?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 4,
-    title: 'Where can I get some?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 5,
-    title: 'The standard Lorem Ipsum passage, used since the 1500s',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 6,
-    title: 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 7,
-    title: '1914 translation by H. Rackham',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 7,
-    title: '1914 translation by H. Rackham',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-];
+// const dummy = [
+//   {
+//     id: 1,
+//     title: 'What is Lorem Ipsum?',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 2,
+//     title: 'Why do we use it?',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 3,
+//     title: 'Where does it come from?',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 4,
+//     title: 'Where can I get some?',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 5,
+//     title: 'The standard Lorem Ipsum passage, used since the 1500s',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 6,
+//     title: 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 7,
+//     title: '1914 translation by H. Rackham',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+//   {
+//     id: 7,
+//     title: '1914 translation by H. Rackham',
+//     img: '/images/testGallery.jpeg',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+//   },
+// ];
 
-// const getData = async () => {
-//   try {
-//     const response = await axios.get(`${process.env.REACT_APP_URL}/api/images`);
-//     console.log(response.data);
-//   } catch (err) {
-//     console.log('error >>>', err);
-//   }
-// };
 export default function ImgList() {
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-  // const [profile, setProfile] = useState(null);
+  const [gallery, setGallery] = useState<galleryType[]>([]);
 
-  // useEffect(() => {
-  //   setTimeout(async () => {
-  //     console.log('load');
-  //     const res = await axios.get(`${process.env.REACT_APP_URL}/api/images`);
-  //     const data = await res.data;
-  //     console.log(data);
-  //     setProfile(data);
-  //   }, 5000);
-  // }, []);
-  
+  useEffect(() => {
+    async function fetchData() {
+      const gallery = await getGalleries();
+      setGallery(gallery);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="card-container">
         <div className="grid-wrapper">
-          {dummy &&
-            dummy.map((item) => {
-              return <ImgCard key={item.id} id={item.id} title={item.title} img={item.img} description={item.description} />;
+          {gallery &&
+            gallery.map((item) => {
+              return <ImgCard key={item.id} id={item.id} title={item.title} imgUrls={item.imgUrls} contents={item.contents} createdAt={''} updatedAt={''} />;
             })}
         </div>
-        {/* {!profile && (
+        {!gallery && (
           <div className="w-60 grid">
             <SkeletonElement />
             <SkeletonElement />
             <SkeletonElement />
             <SkeletonElement />
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );

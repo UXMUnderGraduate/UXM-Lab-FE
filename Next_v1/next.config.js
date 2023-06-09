@@ -3,11 +3,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: '**',
       },
     ],
-    domains: ['picsum.photos', 'uxm.mju.ac.kr'],
+    domains: ['picsum.photos', 'uxmlab.co.kr'],
   },
   experimental: {
     appDir: true,

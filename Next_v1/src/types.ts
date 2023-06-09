@@ -12,7 +12,37 @@ export type userType = {
 };
 
 export type researchType = {
+  id: string;
   title: string;
   contents: string;
   extraAddress: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export type publicationType = {
+  year: string;
+  contents: string;
+  author: string;
+  publisher: string;
+  publishedDate: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+export type noticeType = {
+  id: string;
+  title: string;
+  contents: string;
+  createdAt: string;
+  updateAt?: string;
+};
+
+export type galleryType = {
+  id: string;
+  title: string;
+  contents: string;
+  imgUrls: string[];
+  createdAt: string;
+  updatedAt: string;
 };

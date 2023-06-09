@@ -1,43 +1,21 @@
-import React from 'react';
 import PublicationItem from './PublicationItem';
+import { publicationType } from '@/types';
 
-interface DummyData {
-  id: number;
-  title: string;
-  publishedDate: string;
-}
+type Props = { items: publicationType[] };
 
-const dummy: DummyData[] = [
-  {
-    id: 0,
-    title: 'Video Streaming Based on Blockchain State Channel with IoT Camera, ',
-    publishedDate: '2022-10-11T15:11:30',
-  },
-  {
-    id: 1,
-    title: 'Automatic Smart Contract generation for Internet of Media Things,',
-    publishedDate: '2022-10-11T15:11:30',
-  },
-  {
-    id: 2,
-    title: '빠른 검색을 위한 음원 시그니처 인덱싱 방법, ',
-    publishedDate: '2022-10-11T15:11:30',
-  },
-  {
-    id: 3,
-    title: 'Quality of Experience Experiment Method and Statistical Analysis for 360-degree Video with Sensory Effect',
-    publishedDate: '2022-10-12T15:11:30',
-  },
-];
-
-const PublicationList: React.FC = () => {
+export default function PublicationList({ items }: Props) {
   return (
-    <ul className="publication-list">
-      {dummy.map((item) => (
-        <PublicationItem key={item.id} title={item.title} publishedDate={item.publishedDate} />
+    <ol className="publication-list">
+      {items.map((item, index) => (
+        <PublicationItem
+          key={index}
+          contents={item.contents}
+          publishedDate={item.publishedDate}
+          year={item.year}
+          author={item.author}
+          publisher={item.publisher}
+        />
       ))}
-    </ul>
+    </ol>
   );
-};
-
-export default PublicationList;
+}

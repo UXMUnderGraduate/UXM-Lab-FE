@@ -20,7 +20,7 @@ const Header: React.FC = () => {
           </Link>
         </div>
         <div className="block md:hidden top-0 right-0" onClick={toggleChange}>
-          {toggle ? null : <Image src={Menu} alt="menu" className="w-6 h-6" />}
+          {toggle ? null : <Image src={Menu} width="24" height="24" alt="menu" className="w-6 h-6" />}
         </div>
         <Nav />
       </div>

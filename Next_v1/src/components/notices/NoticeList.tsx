@@ -1,5 +1,8 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import NoticeItem from './NoticeItem';
+import { noticeType } from '@/types';
+import { getNoticeAll } from '@/service/notices';
 
 interface DummyData {
   id: number;
@@ -51,20 +54,22 @@ const dummy: DummyData[] = [
 ];
 
 const NoticeList: React.FC = () => {
+  const [noticeList, setNoticeList] = useState<noticeType[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const noticeList = await getNoticeAll();
+
+      setNoticeList(noticeList);
+    }
+    fetchData();
+  }, []);
+
   return (
     <ul className="notice-list">
-      {dummy.map((item) => (
+      {noticeList.map((item) => (
         <NoticeItem key={item.id} id={item.id.toString()} title={item.title} createdAt={item.createdAt} />
       ))}
-      {/* {!notices && (
-        <>
-          <SkeletonElement />
-          <br />
-          <SkeletonElement />
-          <br />
-          <SkeletonElement />
-        </>
-      )} */}
     </ul>
   );
 };

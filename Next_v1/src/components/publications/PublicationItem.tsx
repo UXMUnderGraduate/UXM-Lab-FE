@@ -1,17 +1,10 @@
+import { publicationType } from '@/types';
 import React from 'react';
 
-interface PublicationProps {
-  title: string;
-  publishedDate: string;
-}
-
-const Publication: React.FC<PublicationProps> = ({ title, publishedDate }) => {
-  // datetime 문자열 자르기 해야함
+export default function Publication({ contents, author, publishedDate }: publicationType) {
   return (
-    <li className="publication_item">
-      <p className="font-medium text-sm sm:text-base">{'– ' + title + '[ ' + publishedDate + ' ]'}</p>
+    <li className=" list-none list-inside mt-2 py-[0.5rem]  border-gray-500 border-b-[0.5px]">
+      <p className="font-medium text-sm sm:text-base ">{contents + ' | ' + author + ' | [ ' + publishedDate.slice(0, 10) + ']'}</p>
     </li>
   );
-};
-
-export default Publication;
+}

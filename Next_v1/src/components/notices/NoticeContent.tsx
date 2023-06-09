@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 interface NoticeContentProps {
-  dummy: string[];
+  content: string;
 }
 
-const NoticeContent: React.FC<NoticeContentProps> = ({ dummy }) => {
+const NoticeContent: React.FC<NoticeContentProps> = ({ content }) => {
   return (
     <div className="notice-detail_content">
-      {dummy.map((line, index) => (
-        <p key={index} className="notice-detail_line">
-          {line}
-        </p>
-      ))}
+      <p className="notice-detail_line">{content}</p>
     </div>
   );
+};
+
+NoticeContent.propTypes = {
+  content: PropTypes.string.isRequired,
 };
 
 export default NoticeContent;
