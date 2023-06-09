@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**',
       },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
     ],
     domains: ['picsum.photos', 'uxmlab.co.kr'],
   },
