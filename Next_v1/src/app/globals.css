@@ -12,6 +12,7 @@ body {
   font-family: 'Pretendard Variable', ui-sans-serif, system-ui, -apple-system;
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
+  text-wrap: balance;
 
   width: 100%;
   height: 100%;
@@ -118,7 +119,7 @@ body {
 -- Publications --
 */
 .publications-article {
-  @apply w-auto flex flex-col sm:flex-row justify-center items-start mx-8 sm:mx-0 px-6 sm:px-10 py-6 sm:py-8 mb-5 bg-myGray bg-opacity-70 rounded-xl;
+  @apply w-auto flex flex-col sm:flex-row max-w-3xl justify-start items-start mx-8 sm:mx-0 px-6 sm:px-10 py-6 sm:py-8 mb-5 bg-myGray bg-opacity-70 rounded-xl;
 }
 .year {
   @apply font-semibold text-xl sm:text-3xl pb-1 sm:pb-0 mb-2 sm:mb-0 sm:pr-7 sm:mr-7 border-b-2 sm:border-b-0 sm:border-r-2 border-zinc-300;
