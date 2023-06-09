@@ -4,7 +4,7 @@ import { getPublicationAll, sortDataByYear } from '@/service/publication';
 
 export default async function Publications() {
   const publicationList = await getPublicationAll();
-  const sortData = sortDataByYear(publicationList);
+  const sortData = await sortDataByYear(publicationList);
   return (
     <>
       <Heading>Publications</Heading>
