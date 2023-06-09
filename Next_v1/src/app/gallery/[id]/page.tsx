@@ -1,9 +1,11 @@
 'use client';
-import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import NoticeHeader from '@/components/notices/NoticeHeader';
 import { useEffect, useState } from 'react';
+import { getGallery } from '@/service/gallery';
+import { galleryType } from '@/types';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   params: {
@@ -11,80 +13,26 @@ type Props = {
   };
 };
 
-const dummy = [
-  {
-    id: 1,
-    title: 'What is Lorem Ipsum?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 2,
-    title: 'Why do we use it?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 3,
-    title: 'Where does it come from?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 4,
-    title: 'Where can I get some?',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 5,
-    title: 'The standard Lorem Ipsum passage, used since the 1500s',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 6,
-    title: 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 7,
-    title: '1914 translation by H. Rackham',
-    img: '/images/testGallery.jpeg',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-  {
-    id: 7,
-    title: '1914 translation by H. Rackham',
-    img: 'https://source.unsplash.com',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-  },
-];
+const GalleryDetail = (props: Props) => {
+  const path = usePathname();
+  const id = path.split('/')[2];
 
-const GalleryDetail = () => {
-  const currentPath = usePathname();
-  const [currentId, setCurrentId] = useState(0);
+  const [gallery, setGallery] = useState<galleryType>();
 
   useEffect(() => {
-    if (currentPath) {
-      setCurrentId(parseInt(currentPath.charAt(currentPath.length - 1)));
-    }
-  }, [currentPath]);
+    getGallery(id).then((res) => {
+      setGallery(res);
+      console.log('test', res);
+    });
+  }, [id]);
 
   return (
     <article className="notice-detail">
-      <NoticeHeader title={dummy[currentId].title} />
-      <Image src={dummy[currentId].img} alt="test" width={500} height={500} className="w-full" />
-      <p className="notice-detail_line">{dummy[currentId].description}</p>
+      <NoticeHeader title={gallery?.title} createdAt={gallery?.createdAt.slice(0, 10)} />
+      {gallery?.imgUrls.map((url) => (
+        <Image key={url} src={`${process.env.NEXT_PUBLIC_IMG_PATH}/${url}`} alt={gallery.title + ' 사진'} width={500} height={500} className="w-full" />
+      ))}
+      <p className="notice-detail_line">{gallery?.contents}</p>
       <div className="notice-button">
         <Link href={'/gallery'} className="notice-link">
           목록으로
