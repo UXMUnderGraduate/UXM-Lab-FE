@@ -9,7 +9,7 @@ interface DownButtonProps {
 const DownButton: React.FC<DownButtonProps> = (props) => {
   return (
     <button onClick={props.onMoveToElement} className="down-button">
-      <Image src={DownArrow} alt="down-arrow" className="w-8 h-8 opacity-50" />
+      <Image src={DownArrow} alt="down-arrow" width={32} height={32} className="w-8 h-8 opacity-50" />
     </button>
   );
 };
