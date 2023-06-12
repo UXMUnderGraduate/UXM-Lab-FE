@@ -13,7 +13,7 @@ export default function Publications() {
       setData(publications);
     }
     fetchData();
-  });
+  },[]);
   
   return (
     <>
