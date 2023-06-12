@@ -26,7 +26,7 @@ export default function Research() {
             <div className="flex">
               {item.extraAddress.split(',').map((url) => {
                 return (
-                  <a href={url} target="_blank" className="text-base font-semibold  px-4 py-2 hover:shadow-xl rounded-lg hover:bg-slate-300">
+                  <a key={url} href={url} target="_blank" className="text-base font-semibold  px-4 py-2 hover:shadow-xl rounded-lg hover:bg-slate-300">
                     Github
                   </a>
                 );
