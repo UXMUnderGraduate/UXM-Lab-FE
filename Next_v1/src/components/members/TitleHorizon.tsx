@@ -7,7 +7,7 @@ interface TitleHorizonProps {
 const TitleHorizon: FC<TitleHorizonProps> = ({ children }) => {
   return (
     <>
-      <h1 className="font-black text-3xl my-10 py-2 border-black border-y">{children}</h1>
+      <h1 className="font-black text-3xl my-10 py-2 border-gray-300 border-y-[0.5px]">{children}</h1>
     </>
   );
 };
