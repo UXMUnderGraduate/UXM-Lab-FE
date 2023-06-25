@@ -42,6 +42,7 @@ export type galleryType = {
   id: string;
   title: string;
   contents: string;
+  videoUrl: string;
   imgUrls: string[];
   createdAt: string;
   updatedAt: string;

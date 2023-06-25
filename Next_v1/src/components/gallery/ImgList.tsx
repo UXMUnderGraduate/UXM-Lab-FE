@@ -4,6 +4,7 @@ import ImgCard from './ImgCard';
 import SkeletonElement from '../ui/SkeletonElement';
 import { getGalleries } from '@/service/gallery';
 import { galleryType } from '@/types';
+import VideoCard from './VedeoCard';
 
 // const dummy = [
 //   {
@@ -81,7 +82,11 @@ export default function ImgList() {
         <div className="grid-wrapper">
           {gallery &&
             gallery.map((item) => {
-              return <ImgCard key={item.id} id={item.id} title={item.title} imgUrls={item.imgUrls} contents={item.contents} createdAt={''} updatedAt={''} />;
+              return (
+                item.imgUrls.length === 0 ?
+                  <VideoCard key={item.id} {...item} /> :
+                  <ImgCard key={item.id} {...item} />
+                )
             })}
         </div>
         {!gallery && (
