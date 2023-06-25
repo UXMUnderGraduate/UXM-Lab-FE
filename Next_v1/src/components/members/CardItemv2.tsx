@@ -22,7 +22,7 @@ const CardItemv2: FC<CardItemv2Props> = (props) => {
         <Image src={`${process.env.NEXT_PUBLIC_SERVER_PATH}/images/${props.img}`} alt={props.nameKr} width={500} height={500} className="w-full  sm:w-52 sm:h-full" />
       )}
       <div className="sm:pl-5 sm:pt-0 pt-3">
-        <h1 className="font-black text-xl sm:text-3xl">{props.nameKr + '(' + props.nameEn + ')'}</h1>
+        <h1 className=" font-semibold text-xl sm:text-3xl">{props.nameKr + '(' + props.nameEn + ')'}</h1>
         <h2 className="font-bold sm:text-2xl">{props.degree}</h2>
         <h4 className=" font-medium sm:mb-5 sm:text-lg">{props.affiliation}</h4>
         <div className="flex">
