@@ -13,18 +13,21 @@ export default function Publications() {
       setData(publications);
     }
     fetchData();
-  },[]);
-  
+  }, []);
+
   return (
     <>
       <Heading>Publications</Heading>
       <div className="sm:mb-10">
-        {data.map((item) => (
-          <article key={item.year} className="publications-article">
-            <h2 className="year">{item.year}</h2>
-            <PublicationList items={item.items} />
-          </article>
-        ))}
+        {data.map((item) => {
+          console.log(item);
+          return (
+            <article key={item.year} className="publications-article">
+              <h2 className="year">{item.year}</h2>
+              <PublicationList items={item.items} />
+            </article>
+          );
+        })}
       </div>
     </>
   );
