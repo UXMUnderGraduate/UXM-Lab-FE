@@ -13,6 +13,7 @@ const navItems = [
   { name: 'Research', routePath: '/research' },
   { name: 'Publication', routePath: '/publications' },
   { name: 'Notices', routePath: '/notices' },
+  { name: 'Previous Work', routePath: '/previous_work' },
   { name: 'Gallery', routePath: '/gallery' },
 ];
 

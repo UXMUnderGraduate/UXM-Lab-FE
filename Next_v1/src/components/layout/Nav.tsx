@@ -35,6 +35,11 @@ const Nav: React.FC = () => {
           </Link>
         </li>
         <li className="nav-list_item">
+          <Link href="/previous_work" className={getLinkClassName('/previous_work')}>
+            Previous Work
+          </Link>
+        </li>
+        <li className="nav-list_item">
           <Link href="/gallery" className={getLinkClassName('/gallery')}>
             Gallery
           </Link>

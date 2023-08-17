@@ -5,73 +5,22 @@ import SkeletonElement from '../ui/SkeletonElement';
 import { getGalleries } from '@/service/gallery';
 import { galleryType } from '@/types';
 import VideoCard from './VedeoCard';
-
-// const dummy = [
-//   {
-//     id: 1,
-//     title: 'What is Lorem Ipsum?',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 2,
-//     title: 'Why do we use it?',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 3,
-//     title: 'Where does it come from?',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 4,
-//     title: 'Where can I get some?',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 5,
-//     title: 'The standard Lorem Ipsum passage, used since the 1500s',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 6,
-//     title: 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 7,
-//     title: '1914 translation by H. Rackham',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-//   {
-//     id: 7,
-//     title: '1914 translation by H. Rackham',
-//     img: '/images/testGallery.jpeg',
-//     description:
-//       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-//   },
-// ];
+import { usePathname } from 'next/navigation';
+import { getPreviousALL } from '@/service/previouswork';
 
 export default function ImgList() {
-  const [gallery, setGallery] = useState<galleryType[]>([]);
+  const [fetchData, setFetchData] = useState<galleryType[]>([]);
+  const path = usePathname();
 
   useEffect(() => {
     async function fetchData() {
-      const gallery = await getGalleries();
-      setGallery(gallery);
+      if (path === '/gallery') {
+        const gallery = await getGalleries();
+        setFetchData(gallery);
+      } else if (path === '/previous_work') {
+        const previous = await getPreviousALL();
+        setFetchData(previous);
+      }
     }
     fetchData();
   }, []);
@@ -80,16 +29,12 @@ export default function ImgList() {
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="card-container">
         <div className="grid-wrapper">
-          {gallery &&
-            gallery.map((item) => {
-              return (
-                item.imgUrls.length === 0 ?
-                  <VideoCard key={item.id} {...item} /> :
-                  <ImgCard key={item.id} {...item} />
-                )
+          {fetchData &&
+            fetchData.map((item) => {
+              return item.imgUrls.length === 0 ? <VideoCard key={item.id} {...item} /> : <ImgCard key={item.id} {...item} />;
             })}
         </div>
-        {!gallery && (
+        {!fetchData && (
           <div className="w-60 grid">
             <SkeletonElement />
             <SkeletonElement />

@@ -14,7 +14,7 @@ export default function Research() {
     }
     fetchData();
   }, []);
-  console.log(research);
+
   return (
     <>
       <Heading>Research</Heading>
