@@ -4,7 +4,7 @@ import axios from 'axios';
 export async function getPublicationAll(): Promise<publicationType[]> {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_PATH}/publications`);
   const data = response.data;
-  console.log('전체 출판물 리스트 요청중');
+  // console.log('전체 출판물 리스트 요청중');
   // handle data here, such as filtering or formatting
   return data;
 }
@@ -12,7 +12,7 @@ export async function getPublicationAll(): Promise<publicationType[]> {
 export async function getPublicationOne(id: string): Promise<publicationType> {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_PATH}/publications/${id}`);
   const data = response.data;
-  console.log(`${id}의 출판물 요청중`);
+  // console.log(`${id}의 출판물 요청중`);
   // handle data here, such as filtering or formatting
   return data;
 }

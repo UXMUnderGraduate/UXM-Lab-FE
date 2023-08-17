@@ -29,7 +29,6 @@ export default function CardList() {
 
   const alumniList = filteredList(members, [], false);
 
-  console.log(UGList);
   return (
     <div className="w-full text-center">
       <TitleHorizon>Professor</TitleHorizon>

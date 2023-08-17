@@ -19,7 +19,6 @@ const NoticeDetail = () => {
   useEffect(() => {
     getNoticeOne(id).then((res) => {
       setNotice(res);
-      console.log('test', res);
     });
   }, [id]);
 

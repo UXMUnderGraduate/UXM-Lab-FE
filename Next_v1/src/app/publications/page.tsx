@@ -20,7 +20,6 @@ export default function Publications() {
       <Heading>Publications</Heading>
       <div className="sm:mb-10">
         {data.map((item) => {
-          console.log(item);
           return (
             <article key={item.year} className="publications-article">
               <h2 className="year">{item.year}</h2>
