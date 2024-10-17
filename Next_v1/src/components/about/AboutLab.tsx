@@ -96,7 +96,7 @@ const AboutLab = () => {
         </p>
       </div>
       <div className="w-full flex justify-end mt-3 items-center">
-        <p className="">UX Media 연구실 담당 교수 김상균</p>
+        <p className="">UXMedia 연구실 담당 교수 김상균</p>
         <Image
           src={"/images/signature.png"}
           alt="교수님 싸인"
