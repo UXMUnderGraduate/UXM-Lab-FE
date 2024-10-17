@@ -34,7 +34,7 @@ body {
   @apply font-semibold text-2xl sm:text-3xl text-myBlue mb-10 sm:mb-20;
 }
 .typo {
-  @apply font-medium text-base sm:text-xl;
+  @apply font-medium text-base whitespace-normal sm:text-xl;
 }
 .search-container {
   @apply w-full flex justify-start items-center px-8;
