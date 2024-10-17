@@ -204,6 +204,12 @@ body {
   @apply w-full flex justify-center items-start py-8 mb-5 bg-myGray bg-opacity-40 rounded-xl;
 }
 
+/*
+-- About Lab --
+*/
+.about-lab-article {
+  @apply w-full flex justify-center items-start py-8 mb-5 bg-myGray bg-opacity-40 rounded-xl;
+}
 /* 
 -- [Members] Card list --
 */

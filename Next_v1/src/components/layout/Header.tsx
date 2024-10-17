@@ -16,7 +16,7 @@ const Header: React.FC = () => {
       <div className="header-container">
         <div>
           <Link href="/" legacyBehavior>
-            <a className="font-bold text-2xl sm:text-3xl">uxm lab.</a>
+            <a className="font-bold text-2xl sm:text-3xl">UXM Lab</a>
           </Link>
         </div>
         <div className="block md:hidden top-0 right-0" onClick={toggleChange}>
