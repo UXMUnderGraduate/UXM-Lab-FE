@@ -9,6 +9,7 @@ interface BurgerProps {
 
 const navItems = [
   { name: 'Home', routePath: '/' },
+  { name: 'About', routePath: '/about' },
   { name: 'Members', routePath: '/members' },
   { name: 'Research', routePath: '/research' },
   { name: 'Publication', routePath: '/publications' },
